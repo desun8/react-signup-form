@@ -3,7 +3,7 @@ import Field from "../Field/Field";
 import Input from "../Field/Input";
 import { Props } from "../Field/types";
 
-function Login(props: Props<string>) {
+function Login({ setFormValue }: Props<string>) {
   const [value, setValue] = useState("");
   const [hasError, setHasError] = useState(false);
   const [shouldValid, setShouldValid] = useState(false);
@@ -13,8 +13,8 @@ function Login(props: Props<string>) {
       setHasError(value === "");
     }
 
-    props.setValue(value);
-  }, [value]);
+    setFormValue(value);
+  }, [value, setFormValue, shouldValid]);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.currentTarget.value);

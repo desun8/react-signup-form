@@ -3,7 +3,7 @@ import Field from "../../Field/Field";
 import Input from "../../Field/Input";
 import { Props } from "../../Field/types";
 
-function Name(props: Props<{ value: string; hasError: boolean }>) {
+function Name({ setFormValue }: Props<{ value: string; hasError: boolean }>) {
   const [value, setValue] = useState("");
   const [hasError, setHasError] = useState(false);
   const [showError, setShowError] = useState(false);
@@ -18,8 +18,8 @@ function Name(props: Props<{ value: string; hasError: boolean }>) {
 
   useEffect(() => {
     validation(value, setHasError);
-    props.setValue({ value: value, hasError: hasError });
-  }, [value, hasError]);
+    setFormValue({ value: value, hasError: hasError });
+  }, [value, hasError, setFormValue]);
 
   const [shouldValid, setShouldValid] = useState(false);
 

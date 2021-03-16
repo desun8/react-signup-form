@@ -2,11 +2,11 @@ import { Checkbox, FormControlLabel } from "@material-ui/core";
 import { ChangeEvent, useEffect, useState } from "react";
 import { Props } from "../../Field/types";
 
-function Agreement(props: Props<boolean>) {
+function Agreement({ setFormValue }: Props<boolean>) {
   const [value, setValue] = useState(false);
   useEffect(() => {
-    props.setValue(value);
-  }, [value]);
+    setFormValue(value);
+  }, [setFormValue, value]);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.currentTarget.checked);

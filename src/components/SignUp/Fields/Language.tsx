@@ -39,11 +39,11 @@ const useStylesSelect = makeStyles({
   },
 });
 
-function Language(props: Props<string>) {
+function Language({ setFormValue }: Props<string>) {
   const [value, setValue] = useState("");
   useEffect(() => {
-    props.setValue(value);
-  }, [value]);
+    setFormValue(value);
+  }, [setFormValue, value]);
 
   const selectClass = useStylesSelect();
 

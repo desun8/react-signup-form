@@ -1,3 +1,3 @@
 export type Props<T> = {
-  setValue: (a: T) => void;
+  setFormValue: (a: T) => void;
 };

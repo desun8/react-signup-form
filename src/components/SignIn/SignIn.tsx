@@ -57,10 +57,10 @@ function SignIn(props: Props) {
     <animated.form style={enter} action="/signin" onSubmit={handleSubmit}>
       <Grid container direction="column" spacing={4}>
         <Grid item>
-          <Login setValue={setLogin} />
+          <Login setFormValue={setLogin} />
         </Grid>
         <Grid item>
-          <Password setValue={setPassword} />
+          <Password setFormValue={setPassword} />
         </Grid>
         <Grid item>
           <Submit disabled={!isFormValid} />

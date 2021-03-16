@@ -31,7 +31,7 @@ function SignUp(props: Props) {
   const [language, setLanguage] = useState("");
   const [agreement, setAgreement] = useState(false);
 
-  const formFields = [name, email, phone, language, agreement];
+  // const formFields = [name, email, phone, language, agreement];
   const formValidation = (
     fields: Array<{ value: string; hasError: boolean } | string | boolean>,
     setValid: (a: boolean) => void
@@ -52,8 +52,8 @@ function SignUp(props: Props) {
   };
 
   useEffect(() => {
-    formValidation(formFields, setIsFormValid);
-  }, formFields);
+    formValidation([name, email, phone, language, agreement], setIsFormValid);
+  }, [name, email, phone, language, agreement]);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -89,19 +89,19 @@ function SignUp(props: Props) {
     >
       <Grid container direction="column" spacing={4}>
         <Grid item>
-          <Name setValue={setName} />
+          <Name setFormValue={setName} />
         </Grid>
         <Grid item>
-          <Email setValue={setEmail} />
+          <Email setFormValue={setEmail} />
         </Grid>
         <Grid item>
-          <Phone setValue={setPhone} />
+          <Phone setFormValue={setPhone} />
         </Grid>
         <Grid item>
-          <Language setValue={setLanguage} />
+          <Language setFormValue={setLanguage} />
         </Grid>
         <Grid item>
-          <Agreement setValue={setAgreement} />
+          <Agreement setFormValue={setAgreement} />
         </Grid>
         <Grid item>
           <Submit disabled={!isFormValid} />
